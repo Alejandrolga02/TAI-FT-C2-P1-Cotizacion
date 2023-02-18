@@ -1,17 +1,18 @@
 {
-  "dependencies": {
-    "body-parser": "^1.20.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.2",
-    "tailwindcss": "^3.2.4"
-  },
-  "scripts": {
-    "run-nodemon": "nodemon app.js",
-    "run-tailwind": "npx tailwindcss -i ./src/css/main.css -o ./public/css/main.css --watch",
-    "dev": "concurrently --kill-others \"npm run run-nodemon\" \"npm run run-tailwind\""
-  },
-  "devDependencies": {
-    "concurrently": "^7.6.0",
-    "nodemon": "^2.0.20"
-  }
+	"dependencies": {
+		"body-parser": "^1.20.1",
+		"ejs": "^3.1.8",
+		"express": "^4.18.2",
+		"tailwindcss": "^3.2.4"
+	},
+	"scripts": {
+		"run-nodemon": "nodemon app.js",
+		"run-tailwind": "npx tailwindcss -i ./src/css/main.css -o ./public/css/main.css --watch",
+		"dev": "concurrently --kill-others \"npm run run-nodemon\" \"npm run run-tailwind\"",
+		"start": "node app.js"
+	},
+	"devDependencies": {
+		"concurrently": "^7.6.0",
+		"nodemon": "^2.0.20"
+	}
 }
