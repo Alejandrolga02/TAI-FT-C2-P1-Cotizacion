@@ -56,19 +56,20 @@ app.post("/tabla", (req, res) => {
 
 app.get("/cotizacion", (req, res) => {
 	const params = {
-		valor: parseFloat(req.body.valor) || null,
-		porcentaje: parseInt(req.body.porcentaje) || null,
-		plazo: parseInt(req.body.plazo) || null,
+		valor: parseFloat(req.body.valor) || undefined,
+		porcentaje: parseInt(req.body.porcentaje) || undefined,
+		plazo: parseInt(req.body.plazo) || undefined,
 	};
 	res.render("cotizacion", params);
 });
 
 app.post("/cotizacion", (req, res) => {
 	const params = {
-		valor: parseFloat(req.body.valor) || null,
-		porcentaje: parseInt(req.body.porcentaje) || null,
-		plazo: parseInt(req.body.plazo) || null,
+		valor: parseFloat(req.body.valor) || undefined,
+		porcentaje: parseInt(req.body.porcentaje) || undefined,
+		plazo: parseInt(req.body.plazo) || undefined,
 	};
+
 	res.render("cotizacion", params);
 });
 
