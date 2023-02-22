@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>Cotizacion</title>
+	</head>
+
+	<body class="bg-neutral-600 text-white">
+		<div class="flex flex-col gap-4 items-center justify-center min-h-screen">
+			<form action="/cotizacion" method="post" class="border-4 border-neutral-700 rounded-2xl py-4 px-8 flex flex-col bg-neutral-800">
+				<h2 class="text-3xl font-semibold font-sans mb-4 text-center">Cotizacion</h2>
+				<label class="text-xl font-sans mb-1" for="valor">Valor del automovil</label>
+				<input class="mb-4 font-sans text-black pl-1 py-1" type="number" name="valor" id="valor" value="<%=valor%>" required />
+				<label for="porcentaje" class="text-xl font-sans mb-1">Porcentaje de Pago Inicial:</label>
+				<select name="porcentaje" class="mb-4 font-sans text-black pl-1 py-1" id="porcentaje">
+					<option value="10" <% if(porcentaje == 10) { %> selected <% } %> >10%</option>
+					<option value="30" <% if(porcentaje == 30) { %> selected <% } %> >30%</option>
+					<option value="50" <% if(porcentaje == 50) { %> selected <% } %> >50%</option>
+					<option value="70" <% if(porcentaje == 70) { %> selected <% } %> >70%</option>
+				</select>
+				<label for="plazo" class="text-xl font-sans mb-1">Numero de plazos:</label>
+				<select name="plazo" id="plazo" class="mb-4 font-sans text-black pl-1 py-1">
+					<option value="12" <% if(plazo == 12) { %> selected <% } %> >12 meses</option>
+					<option value="24" <% if(plazo == 24) { %> selected <% } %> >24 meses</option>
+					<option value="36" <% if(plazo == 36) { %> selected <% } %> >36 meses</option>
+					<option value="48" <% if(plazo == 48) { %> selected <% } %> >48 meses</option>
+					<option value="60" <% if(plazo == 60) { %> selected <% } %> >60 meses</option>
+				</select>
+				<div class="flex flex-row justify-center items-center gap-x-2">
+					<button type="submit" class="px-6 py-2 rounded-md transform duration-500 bg-purple-600 font-bold text-white hover:bg-purple-900">Calcular</button>
+					<button type="reset" id="reset" class="px-6 py-2 rounded-md transform duration-500 bg-purple-600 font-bold text-white hover:bg-purple-900">Limpiar</button>
+				</div>
+
+				<% let pagoInicial = 0; let totalFiniquito = 0; let pagoMensual = 0; if (valor != null) { pagoInicial = valor * (porcentaje/100); totalFiniquito = valor - pagoInicial; pagoMensual = totalFiniquito / plazo; %>
+				<div id="result" class="bg-green-500 p-4 rounded-md border-4 border-green-700 mt-4">
+					<hr />
+					<h3 class="text-2xl font-sans font-semibold py-2 text-center">Información de la cotización</h3>
+					<hr />
+
+					<p class="text-lg font-sans font-medium">Valor del Automovil: $<%= valor %></p>
+					<p class="text-lg font-sans font-medium">Porcentaje de pago <%= porcentaje %>%</p>
+					<p class="text-lg font-sans font-medium">Plazos: <%= plazo %> meses</p>
+					<p class="text-lg font-sans font-medium">Pago Inicial: $<%= pagoInicial.toFixed(2) %></p>
+					<p class="text-lg font-sans font-medium">Total a financiar: $<%= valor-pagoInicial.toFixed(2) %></p>
+					<p class="text-lg font-sans font-medium">Pago Mensual $<%= pagoMensual.toFixed(2) %></p>
+				</div>
+				<% } %>
+			</form>
+		</div>
+
+		<script src="./js/script.js"></script>
+	</body>
+</html>
