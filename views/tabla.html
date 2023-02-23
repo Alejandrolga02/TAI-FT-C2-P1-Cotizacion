@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>Tabla de multiplicar</title>
+	</head>
+
+	<body class="bg-indigo-700">
+		<div class="container mx-auto py-5">
+			<h1 class="font-sans text-3xl text-center font-bold text-slate-100 mb-4">Tabla de multiplicar</h1>
+			<form action="/tabla" method="post">
+				<label for="numero" class="text-2xl block text-slate-100 font-semibold mb-2">Tabla</label>
+				<input type="text" name="numero" id="numero" class="mb-2 border-2 border-indigo-500 rounded-lg w-32 block" required value="<%=numero%>" />
+				<button type="submit" class="block px-6 py-2 rounded-md bg-purple-600 font-bold text-white hover:bg-purple-900">Calcular</button>
+			</form>
+
+			<% if (numero != null) { let res = 0; for (let i = 1; i <= 10; i++) { res = numero * i %>
+			<p><%=numero%> * <%=i%> = <%=res%></p>
+			<% } }%>
+		</div>
+	</body>
+</html>

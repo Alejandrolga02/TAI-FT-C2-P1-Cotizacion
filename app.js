@@ -12,6 +12,9 @@ const app = express();
 app.use(express.static(__dirname + "/public/"));
 app.set("view engine", "ejs");
 app.use(bodyParser(urlencoded({ extended: true })));
+
+// Cambiar extensiones ejs a html
+app.engine("html", require("ejs").renderFile);
 app.use(rutas);
 
 const puerto = 3000;

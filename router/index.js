@@ -30,10 +30,11 @@ let datos = [
 ];
 
 router.get("/", (req, res) => {
-	res.render("index", {
+	res.render("index.html", {
 		titulo: "Mi primera aplicación hecha en Embedded JavaScript",
 		nombre: "Alejandro Iván Lizárraga Rojas",
 		grupo: "TCI 8-3",
+		titulo: "Listado de Alumnos",
 		listado: datos,
 	});
 });
@@ -41,15 +42,17 @@ router.get("/", (req, res) => {
 router.get("/tabla", (req, res) => {
 	const params = {
 		numero: parseInt(req.body.numero) || null,
+		titulo: "Tablas de multiplicar",
 	};
-	res.render("tabla", params);
+	res.render("tabla.html", params);
 });
 
 router.post("/tabla", (req, res) => {
 	const params = {
 		numero: parseInt(req.body.numero) || null,
+		titulo: "Tablas de multiplicar",
 	};
-	res.render("tabla", params);
+	res.render("tabla.html", params);
 });
 
 router.get("/cotizacion", (req, res) => {
@@ -57,8 +60,9 @@ router.get("/cotizacion", (req, res) => {
 		valor: parseFloat(req.body.valor) || undefined,
 		porcentaje: parseInt(req.body.porcentaje) || undefined,
 		plazo: parseInt(req.body.plazo) || undefined,
+		titulo: "Cotización",
 	};
-	res.render("cotizacion", params);
+	res.render("cotizacion.html", params);
 });
 
 router.post("/cotizacion", (req, res) => {
@@ -66,14 +70,15 @@ router.post("/cotizacion", (req, res) => {
 		valor: parseFloat(req.body.valor) || undefined,
 		porcentaje: parseInt(req.body.porcentaje) || undefined,
 		plazo: parseInt(req.body.plazo) || undefined,
+		titulo: "Cotización",
 	};
 
-	res.render("cotizacion", params);
+	res.render("cotizacion.html", params);
 });
 
 // La pagina del error va al final de los get/post
 router.use((req, res, next) => {
-	res.status(404).render("error");
+	res.status(404).render("error.html");
 	// res.status(404).sendFile(__dirname + "/public/error.html");
 });
 

@@ -1,0 +1,41 @@
+<%- include('partials/header.html') %>
+<div class="container mx-auto grid grid-cols-2 gap-4 p-4">
+	<div>
+		<h1 class="text-slate-500 text-center font-sans text-2xl"><%=titulo%></h1>
+		<h2 class="text-violet-500 text-center font-sans text-xl"><%=nombre%></h2>
+		<h3 class="text-rose-500 text-center font-sans text-lg"><%=grupo%></h3>
+	</div>
+	<div>
+		<img src="./img/upsin.png" alt="" srcset="" />
+	</div>
+</div>
+
+<div class="flex flex-col">
+	<div class="overflow-x-auto sm:mx-0.5 lg:mx-8">
+		<div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+			<div class="overflow-hidden">
+				<table class="min-w-full">
+					<thead class="bg-white hover:bg-gray-200 border-b">
+						<tr>
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Matricula</th>
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Nombre</th>
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Sexo</th>
+							<th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Materias</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(item of listado) { %>
+						<tr class="bg-gray-100 even:bg-white border-b hover:bg-gray-200">
+							<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%=item.matricula%></td>
+							<td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%=item.nombre%></td>
+							<td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%=item.sexo%></td>
+							<td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%=item.materias%></td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include('partials/footer.html') %>
