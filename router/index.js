@@ -78,7 +78,7 @@ router.post("/cotizacion", (req, res) => {
 
 // La pagina del error va al final de los get/post
 router.use((req, res, next) => {
-	res.status(404).render("error.html");
+	res.status(404).render("error.html", { titulo: "Pagina no encontrada" });
 	// res.status(404).sendFile(__dirname + "/public/error.html");
 });
 

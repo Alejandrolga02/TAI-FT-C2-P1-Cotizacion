@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./css/main.css" />
-		<title><%=titulo%></title>
-	</head>
-	<body>
-		<header>
-			<h3>Encabezado de pagina</h3>
-		</header>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./css/main.css" />
+	<script src="./js/navbar.js"></script>
+	<title>
+		<%=titulo%>
+	</title>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar">
+			<div class="navbar__content">
+				<h1 class="heading-1">Alejandro Lizarraga</h1>
+				<button id="navbarBoton" class="navbar__toggler">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="26"
+						height="26" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+						stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<line x1="4" y1="6" x2="20" y2="6" />
+						<line x1="4" y1="12" x2="20" y2="12" />
+						<line x1="4" y1="18" x2="20" y2="18" />
+					</svg>
+				</button>
+			</div>
+			<div class="navbar__nav hidden md:flex" id="navbarContenido">
+				<a class="nav__item <% if(titulo === "Listado de Alumnos") { %> active <% } %>" href="/">Listado
+						Alumnos</a>
+				<a class="nav__item <% if(titulo === "Tablas de multiplicar") { %> active <% } %>"
+						href="tabla">Tabla Multiplicar</a>
+				<a class="nav__item <% if(titulo === "Cotización") { %> active <% } %>"
+						href="cotizacion">Cotización</a>
+			</div>
+		</nav>
+	</header>

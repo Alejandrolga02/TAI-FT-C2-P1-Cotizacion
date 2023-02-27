@@ -12,5 +12,51 @@ input[type="number"] {
 
 @tailwind base;
 @tailwind components;
+
+@layer components {
+	.navbar {
+		@apply flex items-center flex-wrap md:justify-between;
+	}
+
+	.navbar__toggler {
+		@apply border py-1 px-3 rounded-lg border-gray-500 transition-all duration-300 md:hidden cursor-pointer;
+	}
+
+	.navbar__toggler:focus {
+		box-shadow: theme(boxShadow.navbarButton);
+	}
+
+	.navbar__content {
+		@apply px-4 flex flex-row items-center justify-between basis-full md:basis-auto;
+		min-height: theme(minHeight.16);
+	}
+
+	.navbar__nav {
+		@apply py-2 basis-full flex-col space-y-2 space-x-0 md:flex-row md:space-y-0 md:space-x-2 md:basis-auto md:px-4 md:py-0;
+	}
+
+	.nav__item {
+		@apply px-4 md:px-0;
+	}
+
+	.nav__item.active {
+		@apply font-medium;
+	}
+
+	.nav__item.disabled {
+		@apply cursor-default text-gray-600;
+	}
+
+	.footer {
+		@apply flex items-center justify-center min-h-[2rem];
+	}
+	.heading-1 {
+		@apply font-bold text-3xl text-start cursor-default;
+	}
+	.heading-3 {
+		@apply font-bold text-xl text-start cursor-default;
+	}
+}
+
 @tailwind utilities;
 @tailwind variants;
